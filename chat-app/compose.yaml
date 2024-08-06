@@ -1,0 +1,18 @@
+services:
+  server:
+    build:
+      context: .
+    ports:
+      - 8080:8080
+  db:
+     image: postgres
+     volumes:
+       - db-data:/var/lib/postgresql/data
+     environment:
+       - POSTGRES_USER=postgres
+       - POSTGRES_DB=postgres
+       - POSTGRES_PASSWORD=123
+     expose:
+       - 5432
+
+
